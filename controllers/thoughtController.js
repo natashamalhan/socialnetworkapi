@@ -1,13 +1,13 @@
 const { Course, Student } = require('../models');
 
 module.exports = {
-  // Get all courses
+
   getCourses(req, res) {
     Course.find()
       .then((courses) => res.json(courses))
       .catch((err) => res.status(500).json(err));
   },
-  // Get a course
+
   getSingleCourse(req, res) {
     Course.findOne({ _id: req.params.courseId })
       .select('-__v')
